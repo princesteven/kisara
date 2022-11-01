@@ -34,3 +34,6 @@ Content-Type: application/json
     "created_at": "2022-11-01T06:59:38.000000Z",
     "id": 8
 }
+
+### Delete Single User
+DELETE {{BASE_URL}}/users/1
