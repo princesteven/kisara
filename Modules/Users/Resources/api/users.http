@@ -1,0 +1,36 @@
+### Get Users
+GET {{BASE_URL}}/users
+Accept: application/json
+
+### Create Users
+POST {{BASE_URL}}/users
+Content-Type: application/json
+
+{
+    "first_name": "John",
+    "middle_name": "",
+    "last_name": "Doe",
+    "email": "john.doe@gmail.com",
+    "password": "12345"
+}
+
+### Get Single User
+GET {{BASE_URL}}/users/1
+Accept: application/json
+
+### Update Single User
+PUT {{BASE_URL}}/users/8
+Content-Type: application/json
+
+{
+    "first_name": "Administrator",
+    "middle_name": "Testing",
+    "last_name": "Test",
+    "email": "test.admin@gmail.com",
+    "user_id": "2022-10-006",
+    "username": "admin.test",
+    "is_active": false,
+    "updated_at": "2022-11-01T06:59:38.000000Z",
+    "created_at": "2022-11-01T06:59:38.000000Z",
+    "id": 8
+}

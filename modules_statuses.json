@@ -1,0 +1,6 @@
+{
+    "Accounts": true,
+    "Users": true,
+    "Invoices": true,
+    "Documents": true
+}
