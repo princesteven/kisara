@@ -3,11 +3,11 @@
 namespace Modules\Users\Http\Controllers;
 
 use Exception;
-use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Modules\Users\Transformers\UserResource;
+use Illuminate\Http\Client\RequestException;
 use Modules\Users\Repositories\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Modules\Users\Http\Requests\CreateUserRequest;

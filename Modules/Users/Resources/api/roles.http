@@ -1,0 +1,28 @@
+### Get Roles
+GET {{BASE_URL}}/roles
+Accept: application/json
+
+### Create Role
+POST {{BASE_URL}}/roles
+Content-Type: application/json
+
+{
+    "name": "Admin",
+    "permissions": ["users:create", "users:update"]
+}
+
+### Get Single Role
+GET {{BASE_URL}}/roles/5
+Accept: application/json
+
+### Update Single Role
+PUT {{BASE_URL}}/roles/1
+Content-Type: application/json
+
+{
+    "name": "Admin",
+    "permissions": ["users:update"]
+}
+
+### Delete Single Role
+DELETE {{BASE_URL}}/roles/1

@@ -1,5 +1,5 @@
 {
-    "name": "kisara/users",
+    "name": "kisara/roles",
     "description": "",
     "authors": [
         {
@@ -7,9 +7,6 @@
             "email": "stephenprince19@gmail.com"
         }
     ],
-    "require": {
-        "laravel/passport": "^11.3.0"
-    },
     "extra": {
         "laravel": {
             "providers": [],
@@ -20,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Users\\": ""
+            "Modules\\Roles\\": ""
         }
     }
 }

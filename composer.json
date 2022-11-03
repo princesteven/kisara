@@ -2,7 +2,10 @@
     "name": "kisara/farms",
     "type": "project",
     "description": "Kisara farms management",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
@@ -13,6 +16,7 @@
         "infyomlabs/laravel-generator": "^5.0",
         "infyomlabs/swagger-generator": "^3.0",
         "laravel/framework": "^9.19",
+        "laravel/passport": "^11.3.0",
         "laravel/sanctum": "^3.0",
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.7",

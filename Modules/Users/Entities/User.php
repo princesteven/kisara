@@ -2,7 +2,7 @@
 
 namespace Modules\Users\Entities;
 
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Modules\Users\Traits\UserExtension;
 use Illuminate\Notifications\Notifiable;
