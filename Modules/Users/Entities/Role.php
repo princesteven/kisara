@@ -2,15 +2,9 @@
 
 namespace Modules\Users\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Permission\Models\Role as SpatieRole;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Role extends SpatieRole
+class Role extends \Spatie\Permission\Models\Role
 {
-    use HasFactory, SoftDeletes;
-
-    protected $fillable = [];
-
+    use SoftDeletes;
 }
