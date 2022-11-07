@@ -2,7 +2,6 @@
 
 namespace Modules\Users\Http\Controllers;
 
-use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Modules\Users\Entities\Role;
@@ -59,48 +58,36 @@ class RolesController extends AppBaseController
      */
     public function show(int $id): Response
     {
-        try {
-            $role = Role::findById($id);
-            return $this->sendResponse(new RoleResource($role), 'Role successfully retrieved');
-        } catch (Exception) {
+        $role = $this->roleRepository->find($id);
+
+        if (empty($role))
             return $this->sendError('Role not found');
-        }
+
+        return $this->sendResponse(new RoleResource($role), 'Role successfully retrieved');
     }
 
     /**
      * Update the specified resource in storage.
      * @param UpdateRoleRequest $request
-     * @param int $id
+     * @param Role $role
      * @return Response
      */
-    public function update(UpdateRoleRequest $request, int $id): Response
+    public function update(UpdateRoleRequest $request, Role $role): Response
     {
-        try {
-            $role = Role::findById($id);
+        $role = $this->roleRepository->update($request->all(), $role->id);
 
-            $role = $this->roleRepository->update($request->all(), $role->id);
-
-            return $this->sendResponse(new RoleResource($role), 'Role updated successfully');
-        } catch (Exception) {
-            return $this->sendError('Role not found');
-        }
+        return $this->sendResponse(new RoleResource($role), 'Role updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
+     * @param Role $role
      * @return Response
      */
-    public function destroy(int $id): Response
+    public function destroy(Role $role): Response
     {
-        try {
-            $role = Role::findById($id);
+        $role->delete();
 
-            $role->delete();
-
-            return $this->sendResponse(null, 'Role successfully deleted');
-        } catch (Exception) {
-            return $this->sendError('Role not found');
-        }
+        return $this->sendResponse(null, 'Role successfully deleted');
     }
 }

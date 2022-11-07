@@ -12,11 +12,11 @@ Content-Type: application/json
 }
 
 ### Get Single Role
-GET {{BASE_URL}}/roles/5
+GET {{BASE_URL}}/roles/15
 Accept: application/json
 
 ### Update Single Role
-PUT {{BASE_URL}}/roles/1
+PUT {{BASE_URL}}/roles/6
 Content-Type: application/json
 
 {
@@ -25,4 +25,4 @@ Content-Type: application/json
 }
 
 ### Delete Single Role
-DELETE {{BASE_URL}}/roles/1
+DELETE {{BASE_URL}}/roles/14

@@ -2,6 +2,7 @@
 
 namespace Modules\Users\Repositories;
 
+//use Spatie\Permission\Models\Role;
 use Modules\Users\Entities\Role;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
@@ -36,7 +37,8 @@ class RoleRepository extends BaseRepository
     public function create($input): Model
     {
         $role = parent::create([
-            'name' => $input['name']
+            'name' => $input['name'],
+            'guard_name' => 'api',
         ]);
 
         $role->givePermissionTo($input['permissions']);
