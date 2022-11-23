@@ -3,9 +3,11 @@
 namespace Modules\Users\Http\Controllers;
 
 use Exception;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Modules\Users\Entities\User;
 use Modules\Users\Transformers\UserResource;
 use Illuminate\Http\Client\RequestException;
 use Modules\Users\Repositories\UserRepository;
@@ -32,9 +34,12 @@ class UsersController extends AppBaseController
      * Display a list of all users.
      * @param Request $request
      * @return Response
+     * @throws AuthorizationException
      */
-    public function index(Request $request): Response
+    public function index(Request $request)
     {
+        $this->authorize('view', User::class);
+
         $users = $this->userRepository->all(
             Arr::except($request->all(), ['limit', 'skip']),
             $request->get('skip'),
@@ -49,9 +54,12 @@ class UsersController extends AppBaseController
      * @param CreateUserRequest $request
      * @return Response
      * @throws RequestException
+     * @throws AuthorizationException
      */
     public function store(CreateUserRequest $request): Response
     {
+        $this->authorize('create', User::class);
+
         $user = $this->userRepository->create($request->all());
 
         return $this->sendResponse(new UserResource($user), 'User created successfully');
@@ -61,9 +69,12 @@ class UsersController extends AppBaseController
      * Show the specified resource.
      * @param int $id
      * @return Response
+     * @throws AuthorizationException
      */
     public function show(int $id): Response
     {
+        $this->authorize('show', User::class);
+
         $user = $this->userRepository->find($id);
 
         if (empty($user))
@@ -77,15 +88,18 @@ class UsersController extends AppBaseController
      * @param UpdateUserRequest $request
      * @param int $id
      * @return Response
+     * @throws AuthorizationException
      */
     public function update(UpdateUserRequest $request, int $id): Response
     {
+        $this->authorize('update', User::class);
+
         $user = $this->userRepository->find($id);
 
         if (empty($user))
             return $this->sendError('User not found');
 
-        $input = $request->safe()->only(['first_name', 'middle_name', 'last_name', 'email', 'is_active']);
+        $input = $request->safe()->only(['first_name', 'middle_name', 'last_name', 'email', 'is_active', 'roles']);
 
         $user = $this->userRepository->update($input, $id);
         return $this->sendResponse(new UserResource($user), 'User updated successfully');
@@ -95,10 +109,12 @@ class UsersController extends AppBaseController
      * Remove the specified resource from storage.
      * @param int $id
      * @return Response
-     * @throws Exception
+     * @throws AuthorizationException
      */
     public function destroy(int $id): Response
     {
+        $this->authorize('delete', User::class);
+
         $user = $this->userRepository->find($id);
 
         if (empty($user))

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
+use Modules\Users\Rules\RolesExists;
 
 class UpdateUserRequest extends FormRequest
 {
@@ -23,6 +24,7 @@ class UpdateUserRequest extends FormRequest
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => ['required', 'email', Rule::unique('users')->ignore($user)],
+            'roles' => ['required', 'array', new RolesExists],
         ];
     }
 

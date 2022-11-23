@@ -14,6 +14,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles, UserExtension, SoftDeletes;
 
+    protected string $guard_name = 'api';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,7 +29,8 @@ class User extends Authenticatable
         "image",
         "email",
         "is_active",
-        "username"
+        "username",
+        "password",
     ];
 
     /**
@@ -36,7 +39,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        "password"
+        "password",
+        "deleted_at",
     ];
 
 }

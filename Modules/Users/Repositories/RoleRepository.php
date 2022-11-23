@@ -2,8 +2,8 @@
 
 namespace Modules\Users\Repositories;
 
-//use Spatie\Permission\Models\Role;
 use Modules\Users\Entities\Role;
+//use Spatie\Permission\Models\Role;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
 

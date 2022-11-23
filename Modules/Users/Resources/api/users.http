@@ -1,39 +1,46 @@
 ### Get Users
 GET {{BASE_URL}}/users
+Content-Type: application/json
 Accept: application/json
+Authorization: {{AUTH_TOKEN}}
 
 ### Create Users
 POST {{BASE_URL}}/users
 Content-Type: application/json
+Accept: application/json
+Authorization: {{AUTH_TOKEN}}
 
 {
-    "first_name": "John",
+    "first_name": "Jane",
     "middle_name": "",
     "last_name": "Doe",
-    "email": "john.doe@gmail.com",
-    "password": "12345"
+    "email": "jane.doe@gmail.com",
+    "password": "12345",
+    "roles": ["Admin"]
 }
 
 ### Get Single User
-GET {{BASE_URL}}/users/1
+GET {{BASE_URL}}/users/9
+Content-Type: application/json
 Accept: application/json
+Authorization: {{AUTH_TOKEN}}
 
 ### Update Single User
-PUT {{BASE_URL}}/users/8
+PUT {{BASE_URL}}/users/1
 Content-Type: application/json
+Accept: application/json
+Authorization: {{AUTH_TOKEN}}
 
 {
-    "first_name": "Administrator",
+    "first_name": "Jane",
     "middle_name": "Testing",
-    "last_name": "Test",
-    "email": "test.admin@gmail.com",
-    "user_id": "2022-10-006",
-    "username": "admin.test",
-    "is_active": false,
-    "updated_at": "2022-11-01T06:59:38.000000Z",
-    "created_at": "2022-11-01T06:59:38.000000Z",
-    "id": 8
+    "last_name": "Doe",
+    "email": "john.doe@gmail.com",
+    "roles": ["Admin"]
 }
 
 ### Delete Single User
-DELETE {{BASE_URL}}/users/1
+DELETE {{BASE_URL}}/users/7
+Content-Type: application/json
+Accept: application/json
+Authorization: {{AUTH_TOKEN}}

@@ -13,11 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::middleware('auth:api')->get('/users', function (Request $request) {
-//    return $request->user();
-//});
+Route::group(['prefix' => 'v1'], function () {
+    Route::group(['prefix' => 'auth'], function () {
+        Route::post('login', [\Modules\Users\Http\Controllers\Auth\AuthController::class, 'login']);
 
-Route::prefix('v1')->group(function () {
-    Route::resource('users', \Modules\Users\Http\Controllers\UsersController::class);
-    Route::resource('roles', \Modules\Users\Http\Controllers\RolesController::class);
+        Route::middleware('auth:api')->group(function () {
+            Route::post('logout', [\Modules\Users\Http\Controllers\Auth\AuthController::class, 'logout']);
+
+            Route::get('user', [\Modules\Users\Http\Controllers\Auth\AuthController::class, 'user']);
+        });
+    });
+
+    Route::middleware('auth:api')->group(function () {
+        Route::resource('users', \Modules\Users\Http\Controllers\UsersController::class);
+
+        Route::resource('roles', \Modules\Users\Http\Controllers\RolesController::class);
+    });
 });

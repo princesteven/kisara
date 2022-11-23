@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Laravel\Passport\Passport;
-// use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -14,7 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+
     ];
 
     /**
@@ -28,6 +28,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Passport::tokensExpireIn(now()->addMinutes(15));
         Passport::refreshTokensExpireIn(now()->addDay());
-        Passport::personalAccessTokensExpireIn(now()->addMonths(6));
+        Passport::personalAccessTokensExpireIn(
+            env('APP_ENV') != 'production'
+                ? now()->addDay()
+                : now()->addMinutes(15)
+        );
     }
 }

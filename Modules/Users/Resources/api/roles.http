@@ -1,28 +1,45 @@
 ### Get Roles
 GET {{BASE_URL}}/roles
+Content-Type: application/json
 Accept: application/json
+Authorization: {{AUTH_TOKEN}}
 
 ### Create Role
 POST {{BASE_URL}}/roles
 Content-Type: application/json
+Accept: application/json
+Authorization: {{AUTH_TOKEN}}
 
 {
     "name": "Admin",
-    "permissions": ["users:create", "users:update"]
+    "permissions": [
+        "users:create", "users:view", "users:update", "users:delete", "user:view",
+        "roles:create", "roles:view", "roles:update", "roles:delete", "role:view"
+    ]
 }
 
 ### Get Single Role
-GET {{BASE_URL}}/roles/15
+GET {{BASE_URL}}/roles/1
+Content-Type: application/json
 Accept: application/json
+Authorization: {{AUTH_TOKEN}}
 
 ### Update Single Role
-PUT {{BASE_URL}}/roles/6
+PUT {{BASE_URL}}/roles/15
 Content-Type: application/json
+Accept: application/json
+Authorization: {{AUTH_TOKEN}}
 
 {
     "name": "Admin",
-    "permissions": ["users:update"]
+    "permissions": [
+        "users:create", "users:view", "users:update", "users:delete", "user:view",
+        "roles:create", "roles:view", "roles:update", "roles:delete", "role:view"
+    ]
 }
 
 ### Delete Single Role
 DELETE {{BASE_URL}}/roles/14
+Content-Type: application/json
+Accept: application/json
+Authorization: {{AUTH_TOKEN}}

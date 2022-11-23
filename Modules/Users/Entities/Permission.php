@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Permission extends \Spatie\Permission\Models\Permission
 {
- use SoftDeletes;
+    use SoftDeletes;
 }

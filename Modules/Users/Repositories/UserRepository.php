@@ -41,11 +41,16 @@ class UserRepository extends BaseRepository
      */
     public function create($input): Model
     {
-        return parent::create($input);
+        $user = parent::create($input);
+        $user->assignRole($input['roles']);
+
+        return $user;
     }
 
     public function update($input, $id): Model
     {
-        return parent::update($input, $id);
+        $user = parent::update($input, $id);
+        $user->syncRoles($input['roles']);
+        return $user;
     }
 }

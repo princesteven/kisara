@@ -1,0 +1,20 @@
+### Send Login Request
+POST {{BASE_URL}}/auth/login
+Content-Type: application/json
+
+{
+    "username": "jane.doe",
+    "password": "12345"
+}
+
+### Send Logout Request
+POST {{BASE_URL}}/auth/logout
+Content-Type: application/json
+Accept: application/json
+Authorization: {{AUTH_TOKEN}}
+
+### Get logged in user
+GET {{BASE_URL}}/auth/user
+Content-Type: application/json
+Accept: application/json
+Authorization: {{AUTH_TOKEN}}

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
+use Modules\Users\Rules\RolesExists;
 
 class CreateUserRequest extends FormRequest
 {
@@ -21,6 +22,7 @@ class CreateUserRequest extends FormRequest
             'last_name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
+            'roles' => ['required', 'array', new RolesExists],
         ];
     }
 
