@@ -36,7 +36,7 @@ class UsersController extends AppBaseController
      * @return Response
      * @throws AuthorizationException
      */
-    public function index(Request $request)
+    public function index(Request $request): Response
     {
         $this->authorize('view', User::class);
 

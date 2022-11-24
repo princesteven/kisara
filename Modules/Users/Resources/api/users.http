@@ -11,16 +11,16 @@ Accept: application/json
 Authorization: {{AUTH_TOKEN}}
 
 {
-    "first_name": "Jane",
+    "first_name": "John",
     "middle_name": "",
     "last_name": "Doe",
-    "email": "jane.doe@gmail.com",
+    "email": "john.doe@gmail.com",
     "password": "12345",
     "roles": ["Admin"]
 }
 
 ### Get Single User
-GET {{BASE_URL}}/users/9
+GET {{BASE_URL}}/users/1
 Content-Type: application/json
 Accept: application/json
 Authorization: {{AUTH_TOKEN}}
@@ -35,7 +35,7 @@ Authorization: {{AUTH_TOKEN}}
     "first_name": "Jane",
     "middle_name": "Testing",
     "last_name": "Doe",
-    "email": "john.doe@gmail.com",
+    "email": "jane.doe@gmail.com",
     "roles": ["Admin"]
 }
 
