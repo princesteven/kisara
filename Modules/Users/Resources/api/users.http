@@ -36,7 +36,9 @@ Authorization: {{AUTH_TOKEN}}
     "middle_name": "Testing",
     "last_name": "Doe",
     "email": "jane.doe@gmail.com",
-    "roles": ["Admin"]
+    "roles": ["Admin"],
+    "addedImages": [],
+    "removedImages": ["63999f3c80b58331a5036282"]
 }
 
 ### Delete Single User

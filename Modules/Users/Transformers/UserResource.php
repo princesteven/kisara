@@ -4,6 +4,7 @@ namespace Modules\Users\Transformers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Services\Transformers\AttachmentResource;
 
 class UserResource extends JsonResource
 {
@@ -23,6 +24,7 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'user_id' => $this->user_id,
             'username' => $this->username,
+            'image' => new AttachmentResource($this->latestImage),
             'is_active' => $this->is_active,
             'should_update_password' => $this->should_update_password,
             'created_at' => $this->created_at,

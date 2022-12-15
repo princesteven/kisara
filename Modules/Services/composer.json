@@ -1,0 +1,23 @@
+{
+    "name": "kisara/services",
+    "description": "",
+    "authors": [
+        {
+            "name": "Prince Steven",
+            "email": "stephenprince19@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Services\\": ""
+        }
+    }
+}

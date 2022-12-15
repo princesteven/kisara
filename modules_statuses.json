@@ -2,5 +2,6 @@
     "Accounts": true,
     "Users": true,
     "Invoices": true,
-    "Documents": true
+    "Documents": true,
+    "Services": true
 }

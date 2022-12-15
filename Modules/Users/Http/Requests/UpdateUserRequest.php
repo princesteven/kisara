@@ -25,6 +25,11 @@ class UpdateUserRequest extends FormRequest
             'last_name' => 'required',
             'email' => ['required', 'email', Rule::unique('users')->ignore($user)],
             'roles' => ['required', 'array', new RolesExists],
+            'addedImages' => 'sometimes|nullable',
+            'addedImages.sometimes' => 'array',
+            'addedImages.sometimes.*.file' => 'required',
+            'removedImages' => 'sometimes|nullable',
+            'removedImages.sometimes' => 'array'
         ];
     }
 

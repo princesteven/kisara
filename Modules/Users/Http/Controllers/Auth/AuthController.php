@@ -18,6 +18,7 @@ class AuthController extends AppBaseController
      */
     public function login(Request $request)
     {
+//        return phpinfo();
         if (!auth()->attempt($request->only('username', 'password'))) {
             return $this->sendError('Invalid credentials', Response::HTTP_UNAUTHORIZED);
         }

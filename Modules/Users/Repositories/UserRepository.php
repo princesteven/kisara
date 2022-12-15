@@ -44,6 +44,8 @@ class UserRepository extends BaseRepository
         $user = parent::create($input);
         $user->assignRole($input['roles']);
 
+        $user->saveImage($input['addedImages'], $user);
+
         return $user;
     }
 
@@ -51,6 +53,10 @@ class UserRepository extends BaseRepository
     {
         $user = parent::update($input, $id);
         $user->syncRoles($input['roles']);
+
+        $user->saveImage($input['addedImages'], $user);
+        $user->deleteImage($input['removedImages'], $user);
+
         return $user;
     }
 }

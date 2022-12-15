@@ -10,11 +10,12 @@
     "require": {
         "php": "^8.0.2",
         "darkaonline/l5-swagger": "8.*",
-        "doctrine/dbal": "~2.3",
+        "doctrine/dbal": "^3.5",
         "guzzlehttp/guzzle": "^7.2",
         "infyomlabs/adminlte-templates": "^5.0",
         "infyomlabs/laravel-generator": "^5.0",
         "infyomlabs/swagger-generator": "^3.0",
+        "jenssegers/mongodb": "^3.9",
         "laravel/framework": "^9.19",
         "laravel/passport": "^11.3.0",
         "laravel/sanctum": "^3.0",

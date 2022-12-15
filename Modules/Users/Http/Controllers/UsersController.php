@@ -2,6 +2,7 @@
 
 namespace Modules\Users\Http\Controllers;
 
+use App\Services\MongoDB\DocumentService;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Arr;
@@ -99,7 +100,7 @@ class UsersController extends AppBaseController
         if (empty($user))
             return $this->sendError('User not found');
 
-        $input = $request->safe()->only(['first_name', 'middle_name', 'last_name', 'email', 'is_active', 'roles']);
+        $input = $request->safe()->only(['first_name', 'middle_name', 'last_name', 'email', 'is_active', 'roles', 'addedImages', 'removedImages']);
 
         $user = $this->userRepository->update($input, $id);
         return $this->sendResponse(new UserResource($user), 'User updated successfully');
